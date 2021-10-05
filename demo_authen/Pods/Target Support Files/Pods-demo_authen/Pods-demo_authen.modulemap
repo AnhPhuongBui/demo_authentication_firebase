@@ -1,0 +1,6 @@
+framework module Pods_demo_authen {
+  umbrella header "Pods-demo_authen-umbrella.h"
+
+  export *
+  module * { export * }
+}

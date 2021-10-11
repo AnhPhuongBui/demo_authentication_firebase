@@ -29,12 +29,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        if let _ = Auth.auth().currentUser {
+            // logout
+           signOut()
+        }
     }
     
     
     @IBAction func signUpAction(_ sender: Any) {
-        guard let email = tfEmail.text, let pass = tfPassWord.text else { return }
+//        guard let email = tfEmail.text, let pass = tfPassWord.text else { return }
+        let email = "phuong.bui@tda.company"
+        let pass = "12345678"
         Auth.auth().createUser(withEmail: email, password: pass) {[weak self] (authResult, error) in
             if let error = error{
                 self?.lbStatus.text = "Error: \(error.localizedDescription)"
@@ -55,7 +60,9 @@ class ViewController: UIViewController {
     
     
     @IBAction func signInAction(_ sender: Any) {
-        guard let email = tfEmail.text, let pass = tfPassWord.text else { return }
+//        guard let email = tfEmail.text, let pass = tfPassWord.text else { return }
+        let email = "phuong.bui@tda.company"
+        let pass = "12345678"
         if let _ = Auth.auth().currentUser {
             // logout
            signOut()
@@ -68,6 +75,10 @@ class ViewController: UIViewController {
                 if let user = Auth.auth().currentUser, user.isEmailVerified {
                     self?.lbStatus.text = "User verified email and login successfully"
                     self?.isLogin = true
+                    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                    if let vc = storyBoard.instantiateViewController(withIdentifier: "UpdateInfoUserVC") as? UpdateInfoUserVC {
+                        self?.navigationController?.pushViewController(vc, animated: true)
+                    }
                 }  else {
                     self?.lbStatus.text = "The user hasn't verified email"
                     self?.signOut(isShowStatus: false )

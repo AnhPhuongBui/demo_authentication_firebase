@@ -15,6 +15,10 @@
 		642FCD8F270BF52C000F4A57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 642FCD8E270BF52C000F4A57 /* Assets.xcassets */; };
 		642FCD92270BF52C000F4A57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 642FCD90270BF52C000F4A57 /* LaunchScreen.storyboard */; };
 		642FCDA7270BF660000F4A57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 642FCDA6270BF660000F4A57 /* GoogleService-Info.plist */; };
+		64615E6A27140FAD00CC5103 /* InfoUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64615E6827140FAD00CC5103 /* InfoUserCell.swift */; };
+		64615E6B27140FAD00CC5103 /* InfoUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64615E6927140FAD00CC5103 /* InfoUserCell.xib */; };
+		64615E6E2714290600CC5103 /* ListUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64615E6D2714290600CC5103 /* ListUserVC.swift */; };
+		64D276AF27102FF0007FAE83 /* UpdateInfoUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D276AE27102FF0007FAE83 /* UpdateInfoUserVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		642FCD91270BF52C000F4A57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		642FCD93270BF52C000F4A57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		642FCDA6270BF660000F4A57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		64615E6827140FAD00CC5103 /* InfoUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoUserCell.swift; sourceTree = "<group>"; };
+		64615E6927140FAD00CC5103 /* InfoUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoUserCell.xib; sourceTree = "<group>"; };
+		64615E6D2714290600CC5103 /* ListUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUserVC.swift; sourceTree = "<group>"; };
+		64D276AE27102FF0007FAE83 /* UpdateInfoUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInfoUserVC.swift; sourceTree = "<group>"; };
 		AFF02B3E1260DF99AD147325 /* Pods-demo_authen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo_authen.release.xcconfig"; path = "Target Support Files/Pods-demo_authen/Pods-demo_authen.release.xcconfig"; sourceTree = "<group>"; };
 		D44F8B2A8E1CFF27DD19BBC4 /* Pods-demo_authen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo_authen.debug.xcconfig"; path = "Target Support Files/Pods-demo_authen/Pods-demo_authen.debug.xcconfig"; sourceTree = "<group>"; };
 		DED02C872D574035A24DA68A /* Pods_demo_authen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_demo_authen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,11 +93,15 @@
 				642FCD85270BF52A000F4A57 /* AppDelegate.swift */,
 				642FCD87270BF52A000F4A57 /* SceneDelegate.swift */,
 				642FCD89270BF52A000F4A57 /* ViewController.swift */,
+				64D276AE27102FF0007FAE83 /* UpdateInfoUserVC.swift */,
+				64615E6D2714290600CC5103 /* ListUserVC.swift */,
 				642FCD8B270BF52B000F4A57 /* Main.storyboard */,
 				642FCD8E270BF52C000F4A57 /* Assets.xcassets */,
 				642FCD90270BF52C000F4A57 /* LaunchScreen.storyboard */,
 				642FCDA6270BF660000F4A57 /* GoogleService-Info.plist */,
 				642FCD93270BF52C000F4A57 /* Info.plist */,
+				64615E6827140FAD00CC5103 /* InfoUserCell.swift */,
+				64615E6927140FAD00CC5103 /* InfoUserCell.xib */,
 			);
 			path = demo_authen;
 			sourceTree = "<group>";
@@ -153,6 +165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64615E6B27140FAD00CC5103 /* InfoUserCell.xib in Resources */,
 				642FCD92270BF52C000F4A57 /* LaunchScreen.storyboard in Resources */,
 				642FCDA7270BF660000F4A57 /* GoogleService-Info.plist in Resources */,
 				642FCD8F270BF52C000F4A57 /* Assets.xcassets in Resources */,
@@ -209,7 +222,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64615E6A27140FAD00CC5103 /* InfoUserCell.swift in Sources */,
+				64D276AF27102FF0007FAE83 /* UpdateInfoUserVC.swift in Sources */,
 				642FCD8A270BF52A000F4A57 /* ViewController.swift in Sources */,
+				64615E6E2714290600CC5103 /* ListUserVC.swift in Sources */,
 				642FCD86270BF52A000F4A57 /* AppDelegate.swift in Sources */,
 				642FCD88270BF52A000F4A57 /* SceneDelegate.swift in Sources */,
 			);

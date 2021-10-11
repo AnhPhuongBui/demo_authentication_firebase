@@ -6,5 +6,6 @@ target 'demo_authen' do
   use_frameworks!
 
   pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
 
 end

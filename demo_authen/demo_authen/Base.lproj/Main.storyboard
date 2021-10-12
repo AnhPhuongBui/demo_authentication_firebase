@@ -257,21 +257,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JBf-wX-hrj">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="448"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQC-1O-JDb">
+                                <rect key="frame" x="158.5" y="552" width="97" height="30"/>
+                                <state key="normal" title="Download file "/>
+                                <connections>
+                                    <action selector="downloadFile:" destination="8nG-dg-dUW" eventType="touchUpInside" id="b5p-6w-0QM"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RcR-gN-sTg">
+                                <rect key="frame" x="30" y="612" width="354" height="220"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rl9-dO-Y1t"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="rl9-dO-Y1t" firstAttribute="bottom" secondItem="JBf-wX-hrj" secondAttribute="bottom" id="D0K-zr-qrV"/>
+                            <constraint firstItem="RcR-gN-sTg" firstAttribute="leading" secondItem="rl9-dO-Y1t" secondAttribute="leading" constant="30" id="5Y2-9Y-tzA"/>
+                            <constraint firstItem="JBf-wX-hrj" firstAttribute="height" secondItem="eSP-fv-FNa" secondAttribute="height" multiplier="1/2" id="JdS-sj-9ki"/>
+                            <constraint firstItem="MQC-1O-JDb" firstAttribute="top" secondItem="JBf-wX-hrj" secondAttribute="bottom" constant="60" id="MDi-u7-P5g"/>
                             <constraint firstItem="JBf-wX-hrj" firstAttribute="top" secondItem="rl9-dO-Y1t" secondAttribute="top" id="Pcd-uC-uuj"/>
+                            <constraint firstItem="RcR-gN-sTg" firstAttribute="centerX" secondItem="rl9-dO-Y1t" secondAttribute="centerX" id="QMh-Iq-ZcR"/>
                             <constraint firstItem="rl9-dO-Y1t" firstAttribute="trailing" secondItem="JBf-wX-hrj" secondAttribute="trailing" id="ZDb-Dc-z9N"/>
+                            <constraint firstItem="MQC-1O-JDb" firstAttribute="centerX" secondItem="JBf-wX-hrj" secondAttribute="centerX" id="bPU-H3-6Wj"/>
+                            <constraint firstItem="RcR-gN-sTg" firstAttribute="top" secondItem="MQC-1O-JDb" secondAttribute="bottom" constant="30" id="iPv-Pw-QGe"/>
                             <constraint firstItem="JBf-wX-hrj" firstAttribute="leading" secondItem="rl9-dO-Y1t" secondAttribute="leading" id="l2y-1x-rvC"/>
+                            <constraint firstItem="rl9-dO-Y1t" firstAttribute="bottom" secondItem="RcR-gN-sTg" secondAttribute="bottom" constant="30" id="tJi-KM-D3x"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="JBf-wX-hrj" id="J88-xX-7Im"/>
+                        <outlet property="viewVideo" destination="RcR-gN-sTg" id="YB2-XP-2nk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hyc-vJ-onx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

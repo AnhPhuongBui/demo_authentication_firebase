@@ -24,7 +24,7 @@ class InfoUserCell: UITableViewCell {
     }
     
     func setUser(user: User) {
-        lbName.text =  user.name
+        lbName.text =  "Name: \(user.name)"
         lbAge.text = user.age
         lbAddress.text = user.address
         lbNumber.text = user.phoneNumber

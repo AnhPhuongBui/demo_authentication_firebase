@@ -19,7 +19,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="KJ1-QJ-2tV">
                         <rect key="frame" x="0.0" y="0.0" width="348" height="81"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hg3-rL-tfo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hg3-rL-tfo">
                                 <rect key="frame" x="0.0" y="0.0" width="348" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="bwf-bg-hq4"/>
@@ -63,10 +63,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="lbAddress" destination="5eW-9F-1JB" id="yxM-s5-mCg"/>
-                <outlet property="lbAge" destination="rTh-gN-6pJ" id="chT-oF-m8c"/>
-                <outlet property="lbName" destination="gzJ-zx-7bz" id="buD-sn-Dp8"/>
-                <outlet property="lbNumber" destination="Hg3-rL-tfo" id="X6u-dZ-1lg"/>
+                <outlet property="lbAddress" destination="gzJ-zx-7bz" id="Qhm-VE-jRv"/>
+                <outlet property="lbAge" destination="rTh-gN-6pJ" id="qvV-3z-KTG"/>
+                <outlet property="lbName" destination="Hg3-rL-tfo" id="5GM-3P-Mb5"/>
+                <outlet property="lbNumber" destination="5eW-9F-1JB" id="YHX-vN-CY5"/>
             </connections>
             <point key="canvasLocation" x="160.86956521739131" y="94.084821428571431"/>
         </tableViewCell>

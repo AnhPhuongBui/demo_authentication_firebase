@@ -42,13 +42,19 @@ class UpdateInfoUserVC: UIViewController {
 
 }
 
-class User: Encodable {
+struct User: Codable {
     var uid: String
     var name: String
     var age: String
     var address: String
     var phoneNumber: String
-    
+    private enum CodingKeys: String, CodingKey {
+        case uid
+        case name
+        case age
+        case address
+        case phoneNumber = "phone_number"
+    }
     init(uid: String, name: String, age: String, address: String, phoneNumber: String ) {
         self.uid = uid
         self.name = name
@@ -56,6 +62,25 @@ class User: Encodable {
         self.address = address
         self.phoneNumber = phoneNumber
     }
+    
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.uid = try container.decode(String.self, forKey: .uid)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.age = try container.decode(String.self, forKey: .age)
+        self.address = try container.decode(String.self, forKey: .address)
+        self.phoneNumber = try container.decode(String.self, forKey: .phoneNumber)
+    }
+    
+    init(from dict: [String: Any]) {
+        self.uid = dict[CodingKeys.uid.rawValue] as? String ?? ""
+        self.name = dict[CodingKeys.name.rawValue] as? String ?? ""
+        self.age = dict[CodingKeys.age.rawValue] as? String ?? ""
+        self.address = dict[CodingKeys.address.rawValue] as? String ?? ""
+        self.phoneNumber = dict[CodingKeys.phoneNumber.rawValue] as? String ?? ""
+    }
+    
 }
 
 extension Encodable {

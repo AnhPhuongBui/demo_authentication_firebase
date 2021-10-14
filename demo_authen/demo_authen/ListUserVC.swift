@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseStorage
+import FirebaseAuth
 import AVKit
 class ListUserVC: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
@@ -17,7 +18,7 @@ class ListUserVC: UIViewController {
     
     let db = Firestore.firestore()
     let storage = Storage.storage()
-    
+    var lastDocument: DocumentSnapshot? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         getUser()
@@ -32,6 +33,68 @@ class ListUserVC: UIViewController {
             if let err = error {
                 print("Error getting: \(err)")
             } else {
+                for document in querySnapshot!.documents {
+                    let user = User(from: document.data())
+                    self?.listUser.append(user)
+                }
+                self?.tableView.reloadData()
+            }
+        }
+    }
+    
+    @IBAction func orderByAge(_ sender: UIButton) {
+        listUser.removeAll()
+        db.collection("users").order(by: "age", descending: false).getDocuments { [weak self](querySnapshot, error) in
+            if let err = error {
+                print("Error getting: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let user = User(from: document.data())
+                    self?.listUser.append(user)
+                }
+                self?.tableView.reloadData()
+            }
+        }
+    }
+    
+    @IBAction func limitValue(_ sender: UIButton) {
+        listUser.removeAll()
+        let query = db.collection("users").order(by: "age", descending: false).limit(to: 3)
+        
+        query.getDocuments { [weak self](querySnapshot, error) in
+            if let err = error {
+                print("Error getting: \(err)")
+            } else {
+                self?.lastDocument = querySnapshot?.documents.last
+                for document in querySnapshot!.documents {
+                    let user = User(from: document.data())
+                    self?.listUser.append(user)
+                }
+                self?.tableView.reloadData()
+            }
+        }
+    }
+    
+    @IBAction func loadMore(_ sender: UIButton) {
+//        Auth.auth().currentUser
+//        if let _ = Auth.auth().currentUser {
+//            // logout
+//            do {
+//                Auth.auth()
+//                try Auth.auth().signOut()
+//               
+//            } catch {
+//                print("Sign out error")
+//            }
+//        }
+        guard let lastDocument = lastDocument else { return }
+        let nextQuery  = db.collection("users").order(by: "age", descending: false).limit(to: 3).start(afterDocument: lastDocument)
+        nextQuery.getDocuments { [weak self](querySnapshot, error) in
+            if let err = error as NSError?, let errorCode = FirestoreErrorCode(rawValue: err.code)  {
+                print(errorCode)
+                print("Error getting: \(err)")
+            } else {
+                self?.lastDocument = querySnapshot?.documents.last
                 for document in querySnapshot!.documents {
                     let user = User(from: document.data())
                     self?.listUser.append(user)
@@ -57,7 +120,8 @@ class ListUserVC: UIViewController {
         guard let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first  else { return }
         let localURL = documentsUrl.appendingPathComponent("event/video.mp4")
         let _ = videoRef.write(toFile: localURL) { url, error in
-            if let error = error {
+            if let error = error  as NSError?, let errorCode = StorageErrorCode(rawValue: error.code){
+                print(errorCode)
                 print("download error: \(error.localizedDescription)")
             } else {
                 self.playVideo(url: url)

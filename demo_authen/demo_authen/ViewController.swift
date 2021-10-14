@@ -45,7 +45,8 @@ class ViewController: UIViewController {
                 self?.lbStatus.text = "Error: \(error.localizedDescription)"
             } else {
                 Auth.auth().currentUser?.sendEmailVerification(completion: { (error) in
-                    if let error = error{
+                    if let error = error as NSError?, let errorCode = AuthErrorCode(rawValue: error.code) {
+                        print(errorCode)
                         self?.lbStatus.text = "Error: \(error.localizedDescription)"
                         self?.signOut()
                     }  else {
